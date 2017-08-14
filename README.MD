@@ -3,3 +3,4 @@
 Repository dedicated to host reinforcement learning examples, exercices, experiments, tests and ideas using Tensorflow.
 
   - [Multi-armed bandit RL](https://github.com/llealgt/Reinforcement-Learning/blob/master/Multi-Armed%20Bandit%20.ipynb)
+  - [Q-Table learning RL using OpenAI environment](https://github.com/llealgt/Reinforcement-Learning/blob/master/Q-Learning(Table).ipynb)
