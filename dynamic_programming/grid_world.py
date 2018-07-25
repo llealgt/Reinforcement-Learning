@@ -37,7 +37,9 @@ class Grid: # the environment
 			elif action == "L":
 				self.j -=1
 
-		return self.rewards.get((self.i,self.j),0)
+		reward = self.rewards.get((self.i,self.j),0)
+		#print(action,self.i,self.j,reward)
+		return reward
 
 	def undo_move(self,action):
 		#perform opposite action
@@ -79,7 +81,7 @@ class Grid: # the environment
 
 	def negative_grid(step_cost=-0.1):
 		# configures the grid created in standard_grid to add penalizations for each non reward step
-		grid = standard_grid()
+		grid = Grid.standard_grid()
 		grid.rewards.update(
 			{
 				(0,0):step_cost,
