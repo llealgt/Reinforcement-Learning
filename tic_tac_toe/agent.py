@@ -39,7 +39,7 @@ class  Agent:
 			next_move = possible_moves[idx]
 		else:
 			#greedy action
-			position_to_value = []
+			position_to_value = {}
 			next_move = None
 			best_value = -1
 
@@ -63,7 +63,7 @@ class  Agent:
 				for i in xrange(LENGTH):
 					print("-------------")
 					for j in xrange(LENGTH):
-						if env.is_empty((i,j)):
+						if env.is_empty(i,j):
 							print(position_to_value[(i,j)])
 						else:
 							print(" ")
@@ -84,7 +84,7 @@ class  Agent:
 		target = reward
 
 		for previous in reversed(self.state_history):
-			new_value = self.value[previous] + self.alpha*(target * self.value[previous])
+			new_value = self.value[previous] + self.alpha*(target - self.value[previous])
 			self.value[previous] = new_value
 			target = new_value
 
