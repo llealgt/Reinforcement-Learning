@@ -10,12 +10,15 @@ from tic_tac_toe import Human
 
 from time import sleep
 import pickle
-
+import requests
+import json
+endpoint_url ="https://firestore.googleapis.com/v1beta1/projects/alphatotito/databases/(default)/documents/board_state/current_state"
 
 
 human = Human()
 env = Environment()
 human.set_symbol(env.o)
+LENGTH = 3
 
 
 aiy.i18n.set_language_code("es-ES")
@@ -72,7 +75,7 @@ def train(GAMES_TO_PLAY):
  		play_game(p1,p2,Environment(),draw=False)
 	
 
-	with open("player1.pkl","wb") as p1_dump:
+	with open("player1_{}.pkl".format(LENGTH),"wb") as p1_dump:
 		pickle.dump(p1,p1_dump,pickle.HIGHEST_PROTOCOL)
 
 	return p1,p2
@@ -174,7 +177,7 @@ def main():
 		p1,p2 = train(10)
 		print("Finished training ",p1,p2)
 	elif "jugar" in text:
-		with open("player1.pkl","rb") as p1_dump:
+		with open("player1_{}.pkl".format(LENGTH),"rb") as p1_dump:
 			p1 = pickle.load(p1_dump)
 	else:
 		aiy.audio.say("Opción no valida")
@@ -226,7 +229,7 @@ def main():
 				if text is None:
 					continue
 
-				if "terminar" in text or "finalizar" in text:
+				if "terminar" in text or "finalizar" in text or "salir" in text:
 					aiy.audio.say("Ok, hasta luego!")
 					break
 				
@@ -239,6 +242,10 @@ def main():
 				if text is None:
 					continue
 
+				if "terminar" in text or "finalizar" in text or "salir" in text:
+					aiy.audio.say("Ok, hasta luego!")
+					break
+
 				col = identify_selection(text) -1
 					
 				print("Elegiste fila {} columna {}".format(str(row+1),str(col+1)))
@@ -248,6 +255,7 @@ def main():
 					continue
 
 				human.do_action(env,row,col)
+				execute_ui_endpoint(env)
 				turn = "agent"
 				env.draw_board()
 				sleep(1.0)
@@ -259,12 +267,14 @@ def main():
 				
 			else:
 				new_state = p1.take_action(env)
+				
 				num_state = env.get_state()
 				say_election(new_state[1]+1,new_state[2]+1)
 				sleep(0.5)
 
 				print(new_state)
 				env.draw_board()
+				execute_ui_endpoint(env)
 				
 				GAME_OVER = env.game_over()
 				
@@ -277,6 +287,37 @@ def main():
 				aiy.audio.say("Es un empate")
 		iterations+=1
 
-	
+def calculate_ui_endpoint(env):
+	request_string = """{
+  					"name": "projects/alphatotito/databases/(default)/documents/board_state/current_state",
+					  "fields": {
+					    "state": {
+					      "integerValue": """ + str(env.get_state())+ """
+					    },
+					    "board": {
+					      "arrayValue": {
+					        "values": ["""
+	board_values = ""
+	for i in range(LENGTH):
+		for j in range(LENGTH):
+			board_values+='{"integerValue":"'+str(int(env.board[i][j]))+'"},'
+
+	board_values= board_values[0:-1]
+
+	request_string +=board_values+"""]
+      	}
+    	}
+  		},
+  		"createTime": "2018-07-26T05:24:12.163712Z",
+  		"updateTime": "2018-07-30T05:11:21.532238Z"
+		}"""
+
+	return request_string
+
+def execute_ui_endpoint(env):
+	payload = calculate_ui_endpoint(env)
+
+	return requests.request("patch",endpoint_url,data = payload)
+
 if __name__ == "__main__":
 	main()
