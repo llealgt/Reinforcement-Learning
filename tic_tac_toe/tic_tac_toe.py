@@ -24,7 +24,7 @@ from builtins import range, input
 
 
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 LENGTH = 3
 
