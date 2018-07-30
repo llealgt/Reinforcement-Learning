@@ -9,11 +9,12 @@ from tic_tac_toe import Agent
 from tic_tac_toe import Human
 
 from time import sleep
+import pickle
 
-env = Environment()
-p1 = Agent()
-p1.set_symbol(env.x)
+
+
 human = Human()
+env = Environment()
 human.set_symbol(env.o)
 
 
@@ -47,6 +48,7 @@ def play_game(player1,player2,env,draw= False):
 	player2.update(env)
 
 def train(GAMES_TO_PLAY):
+	p1 = Agent()
 	p2 = Agent()
 
   	# set initial V for p1 and p2
@@ -66,8 +68,14 @@ def train(GAMES_TO_PLAY):
 	for t in range(GAMES_TO_PLAY):
     
         
- 		print("starting game ",t)
+ 		print("starting train game ",t)
  		play_game(p1,p2,Environment(),draw=False)
+	
+
+	with open("player1.pkl","wb") as p1_dump:
+		pickle.dump(p1,p1_dump,pickle.HIGHEST_PROTOCOL)
+
+	return p1,p2
 
 word_to_num = {
 			#'cero':0,
@@ -163,73 +171,111 @@ def main():
 
 	if "entrenar" in text:
 		aiy.audio.say("Ok, entrenando agente")
-		train(1000)
+		p1,p2 = train(10)
+		print("Finished training ",p1,p2)
+	elif "jugar" in text:
+		with open("player1.pkl","rb") as p1_dump:
+			p1 = pickle.load(p1_dump)
+	else:
+		aiy.audio.say("Opción no valida")
+		return
 
-	aiy.audio.say("Empezando el juego")
-	aiy.audio.say("Cual es tu nombre?")
-	recognized_name = recognizer.recognize()
-	player_name = "humano"
+	FINISH_GAME = False
+	iterations = 0
 
-	if not recognized_name is None:
-		if len(recognized_name) > 0:
-			player_name = recognized_name 
+	while not FINISH_GAME: 
+		if iterations > 0:
+			aiy.audio.say("Desea jugar o salir?")
+			election = recognizer.recognize()
 
-	turn = "human"
-	
-	GAME_OVER = False
+			if "salir" in election or "terminar" in election or "finalizar" in election or "quitar" in election:
+				FINISH_GAME = True 
+				continue
+			elif not "jugar" in election:
+				aiy.audio.say("Opcion no valida, seleccionar jugar o salir")
+				continue
+			elif "jugar" in election:
+				print("Start game")
 
-	env.draw_board()
+		aiy.audio.say("Empezando el juego")
+		aiy.audio.say("Cual es tu nombre?")
+		recognized_name = recognizer.recognize()
+		player_name = "humano"
 
-	while not GAME_OVER:
-		if turn == "human":
-			row = -1
-			col = -1
-			say_your_turn(player_name)
-			aiy.audio.say("Que fila elijes?")
-			text = recognizer.recognize()
-			print("Dijiste ",text)
+		if not recognized_name is None:
+			if len(recognized_name) > 0:
+				player_name = recognized_name 
+
+		turn = "human"
 		
-			if text is None:
-				continue
+		GAME_OVER = False
+		env = Environment()
+		env.draw_board()
 
-			if "terminar" in text or "finalizar" in text:
-				aiy.audio.say("Ok, hasta luego!")
-				break
+		while not GAME_OVER:
 			
-			row = identify_selection(text) -1
+
+			if turn == "human":
+				row = -1
+				col = -1
+				say_your_turn(player_name)
+				aiy.audio.say("Que fila elijes?")
+				text = recognizer.recognize()
+				print("Dijiste ",text)
+			
+				if text is None:
+					continue
+
+				if "terminar" in text or "finalizar" in text:
+					aiy.audio.say("Ok, hasta luego!")
+					break
 				
-			aiy.audio.say("Que columna elijes?")
-			text = recognizer.recognize()
-			print("Dijiste ",text)
-			
-			if text is None:
-				continue
-
-			col = identify_selection(text) -1
+				row = identify_selection(text) -1
+					
+				aiy.audio.say("Que columna elijes?")
+				text = recognizer.recognize()
+				print("Dijiste ",text)
 				
-			print("Elegiste fila {} columna {}".format(str(row+1),str(col+1)))
+				if text is None:
+					continue
 
-			if row == -1 or col == -1 or not env.is_empty(row,col):
-				aiy.audio.say("Elección no valida")
-				continue
+				col = identify_selection(text) -1
+					
+				print("Elegiste fila {} columna {}".format(str(row+1),str(col+1)))
 
-			human.do_action(env,row,col)
-			turn = "agent"
-			env.draw_board()
-			sleep(1.0)
-		else:
-			new_state = p1.take_action(env)
-			num_state = env.get_state()
-			say_election(new_state[1]+1,new_state[2]+1)
-			sleep(0.5)
+				if row == -1 or col == -1 or not env.is_empty(row,col):
+					aiy.audio.say("Elección no valida")
+					continue
 
-			print(new_state)
-			env.draw_board()
-			
-			GAME_OVER = env.game_over()
-			if GAME_OVER:
-				aiy.audio.say("Lo siento, yo gano. ja ja")
-			turn = "human"
+				human.do_action(env,row,col)
+				turn = "agent"
+				env.draw_board()
+				sleep(1.0)
+
+				GAME_OVER = env.game_over() 
+				
+				if GAME_OVER and env.winner == human.sym:
+					aiy.audio.say("Felicitaciones, ganaste")
+				
+			else:
+				new_state = p1.take_action(env)
+				num_state = env.get_state()
+				say_election(new_state[1]+1,new_state[2]+1)
+				sleep(0.5)
+
+				print(new_state)
+				env.draw_board()
+				
+				GAME_OVER = env.game_over()
+				
+				if GAME_OVER and env.winner == p1.sym:
+					aiy.audio.say("Lo siento, yo gano. ja ja")
+				turn = "human"
+
+			if env.ended and env.winner == None:
+				GAME_OVER = True
+				aiy.audio.say("Es un empate")
+		iterations+=1
 
 	
 if __name__ == "__main__":

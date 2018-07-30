@@ -74,7 +74,7 @@ class Agent:
       # loop through all possible moves, get their values
       # keep track of the best value
       pos2value = {} # for debugging
-      next_move = None
+      next_move = (-1,-1)
       best_value = -1
       for i in range(LENGTH):
         for j in range(LENGTH):
@@ -110,6 +110,7 @@ class Agent:
         print("------------------")
 
     # make the move
+    next_move
     env.board[next_move[0], next_move[1]] = self.sym
     return best_state,next_move[0],next_move[1] ,best_value
 
@@ -153,11 +154,12 @@ class Environment:
   def reward(self, sym):
     # no reward until game is over
     if not self.game_over():
-      return 0
+      return -0.1
 
     # if we get here, game is over
     # sym will be self.x or self.o
-    return 1 if self.winner == sym else 0
+    #return 1 if self.winner == sym else 0
+    return 1 if self.winner == sym else -1
 
   def get_state(self):
     # returns the current state, represented as an int
