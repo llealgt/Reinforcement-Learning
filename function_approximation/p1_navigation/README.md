@@ -26,7 +26,7 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 - **`2`** - turn left.
 - **`3`** - turn right.
 
-The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
+The task is episodic, and in order to solve the solve the problem, the agent needs to have an average of 13(or more) in 100 consecutive episodes. It was expected to do it in 1800 episodes, my agent did it in 494 episodes.
 
 ### Getting Started
 
@@ -44,6 +44,6 @@ The task is episodic, and in order to solve the environment, your agent must get
 
 ### Instructions
 
-Follow the instructions in `Navigation.ipynb` to get started with training your own agent!  
+Open the notebook `Navigation.ipynb`  and click "Run All".
 
 
