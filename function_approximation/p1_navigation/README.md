@@ -48,4 +48,11 @@ The task is episodic, and in order to solve the solve the problem, the agent nee
 
 Open the notebook `Navigation.ipynb`  and click "Run All".
 
+### Ideas for improving the agents performance
 
+Benchmarking my agent against the expected episodes before completion, the agent is already pretty good(needs aroung 500 episodes, 1800 was the suggested value to expect), still i think there's some ideas than can make it better.
+
+* Apply prioritized experience replay : https://arxiv.org/pdf/1511.05952.pdf
+* Apply a dueling network architecture: https://arxiv.org/pdf/1511.06581.pdf
+* Do a detailed grid-search for hyperparameters.
+* Explore different Q network architecture.
