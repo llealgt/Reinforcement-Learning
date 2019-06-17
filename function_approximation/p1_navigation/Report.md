@@ -30,5 +30,5 @@ Additional to these 2 techniques(taken from the 2015 DeepMind Atari Paper) i use
 
 ## Rewards per episode
 
-!Rewards Per Episode](rewards_per_episode.png)
+![Rewards Per Episode](rewards_per_episode.png)
 Format: ![Alt Text](url)
