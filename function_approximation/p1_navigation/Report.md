@@ -11,3 +11,24 @@ In order to train the Q function approximator network a second function is neede
 This method uses "experience replay" storing experience tuples in a memory buffer and a target network which is a previous copy of the Q network , this helps stabilize the training making the process similar to a supervised learning setting.
 
 Additional to these 2 techniques(taken from the 2015 DeepMind Atari Paper) i used another technique from a different DeepMind paper called double deep Q-learning which tries to minimize maximization bias by using the second deep neural network(target network) as an evaluator of the value of the actions selected by the local original Q network
+
+## Hyperparameters
+
+| Hyperparameter        | Value           | Comment  |
+| ------------- |:-------------:| -----:|
+| start epsilon      | 1.0| The agent starts in full exploration mode |
+| end epsilon      | 0.01      |   The exploration decay to a limit of 1% meaning it will explore 1% of the time |
+| epsilon decay | 0.99125      |    The exploration probability decrases 99.125% every iteration |
+| update target network every      | 50 | Target network gets a copy from local network every 50 steps |
+| replay buffer size      | 100000      |   How many experience tuples to  store(last observed) |
+| train every | 4      |    Trainind is not performed every step but every 4 experience steps |
+| batch size      | 32 | A batch of 32 experience tuples is randomly sampled from replay buffer |
+| learning rate      | 0.00025      |   a learning rate of 0.00025 is used with an Adam optimizer |
+| QNetork hidden layers| 2      |    The Q network has hidden 2 layers |
+| Number of hidden units in QNetwork      | 150,150 | every hidden layer las 150 nits|
+
+
+## Rewards per episode
+
+!Rewards Per Episode](rewards_per_episode.png)
+Format: ![Alt Text](url)
