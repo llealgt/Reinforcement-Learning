@@ -31,4 +31,13 @@ Additional to these 2 techniques(taken from the 2015 DeepMind Atari Paper) i use
 ## Rewards per episode
 
 ![Rewards Per Episode](rewards_per_episode.png)
-Format: ![Alt Text](url)
+
+## Ideas for improving the agents performance
+
+Benchmarking my agent against the expected episodes before completion, the agent is already pretty good(needs aroung 500 episodes, 1800 was the suggested value to expect), still i think there's some ideas than can make it better.
+
+* Apply prioritized experience replay : https://arxiv.org/pdf/1511.05952.pdf
+* Apply a dueling network architecture: https://arxiv.org/pdf/1511.06581.pdf
+* Do a detailed grid-search for hyperparameters.
+* Explore different Q network architecture.
+
