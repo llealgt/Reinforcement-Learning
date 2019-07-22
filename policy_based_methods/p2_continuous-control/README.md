@@ -1,14 +1,19 @@
 [//]: # (Image References)
 
 [image1]: https://user-images.githubusercontent.com/10624937/43851024-320ba930-9aff-11e8-8493-ee547c6af349.gif "Trained Agent"
-[image2]: https://user-images.githubusercontent.com/10624937/43851646-d899bf20-9b00-11e8-858c-29b5c2c94ccc.png "Crawler"
 
 
-# Project 2: Continuous Control
+# Continuous Control using DDPG (Deep Deterministic Policy Gradient)
 
 ### Introduction
 
-For this project, you will work with the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment.
+#### Based on paper:
+
+* CONTINUOUS CONTROL WITH DEEP REINFORCEMENT LEARNING : https://arxiv.org/pdf/1509.02971.pdf
+
+For this project, i trained a continous control actor-critic policy based agent  using  [Unity Game Engine](
+https://unity.com/
+) specifically the the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment.
 
 ![Trained Agent][image1]
 
@@ -18,7 +23,7 @@ The observation space consists of 33 variables corresponding to position, rotati
 
 ### Distributed Training
 
-For this project, we will provide you with two separate versions of the Unity environment:
+Thre's two separate versions of the Unity environment(this project and repo contains the first one):
 - The first version contains a single agent.
 - The second version contains 20 identical agents, each with its own copy of the environment.  
 
@@ -26,19 +31,8 @@ The second version is useful for algorithms like [PPO](https://arxiv.org/pdf/170
 
 ### Solving the Environment
 
-Note that your project submission need only solve one of the two versions of the environment. 
+The task is episodic, and in order to solve the environment,  the agent must get an average score of +30 over 100 consecutive episodes. I trained the agent to get a score of +35.
 
-#### Option 1: Solve the First Version
-
-The task is episodic, and in order to solve the environment,  your agent must get an average score of +30 over 100 consecutive episodes.
-
-#### Option 2: Solve the Second Version
-
-The barrier for solving the second version of the environment is slightly different, to take into account the presence of many agents.  In particular, your agents must get an average score of +30 (over 100 consecutive episodes, and over all agents).  Specifically,
-- After each episode, we add up the rewards that each agent received (without discounting), to get a score for each agent.  This yields 20 (potentially different) scores.  We then take the average of these 20 scores. 
-- This yields an **average score** for each episode (where the average is over all 20 agents).
-
-The environment is considered solved, when the average (over 100 episodes) of those average scores is at least +30. 
 
 ### Getting Started
 
