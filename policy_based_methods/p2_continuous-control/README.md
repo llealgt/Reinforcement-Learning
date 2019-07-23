@@ -63,3 +63,17 @@ The task is episodic, and in order to solve the environment,  the agent must get
 Open the notebook `Continuous_Control.ipynb`  and click "Run All".
 This will train the agent every number of episodes(controlled by variable VISUALIZE_EVERY) the Unity Environment and the agent interacting with it will be visualized.
 
+### Future ideas for improvements
+
+DDPG paper showed that many deep value based techniques can be applied to policy based with continous action spaces and i think that some of this value based techniques that are not in the paper but that i have applied before can further improve this policy based agent, for example:
+
+* Prioritized experience replay.
+* Double q-learning for reducing overestimation bias.
+* Dueling network architecture
+
+Additional to this i think that some recent techniques specific to policy based methods can be experimented like:
+
+* Trust Region Policy Optimization(TRPO)
+* Proximal Policy Optimization(PPO)
+
+In the original DDPG paper, DeepMind applied batch normalization but in my case it seemed to hurt performance and even create divergence. 
