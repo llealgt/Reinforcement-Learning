@@ -21,16 +21,17 @@ This method uses a shared "experience replay" buffer storing experience tuples o
 
 | Hyperparameter        | Value           | Comment  |
 | ------------- |:-------------:| -----:|
-| start epsilon      | 1.0| The agent starts in full exploration mode |
-| end epsilon      | 0.01      |   The exploration decay to a limit of 1% meaning it will explore 1% of the time |
-| epsilon decay | 0.99125      |    The exploration probability decrases 99.125% every iteration |
-| update target network every      | 50 | Target network gets a copy from local network every 50 steps |
+| gamma | 0.99      |    The discount factor of bellman equation |
+| update target network every      | 10 | Target network gets a copy from local network every 10 steps |
 | replay buffer size      | 100000      |   How many experience tuples to  store(last observed) |
-| train every | 4      |    Trainind is not performed every step but every 4 experience steps |
-| batch size      | 32 | A batch of 32 experience tuples is randomly sampled from replay buffer |
-| learning rate      | 0.00025      |   a learning rate of 0.00025 is used with an Adam optimizer |
-| QNetork hidden layers| 2      |    The Q network has hidden 2 layers |
-| Number of hidden units in QNetwork      | 150,150 | every hidden layer las 150 nits|
+| train every | 1      |    To control how many steps between training,4 worked fine in dqn but 1 works good in MADDPG |
+| batch size      | 128 | A batch of 128 experience tuples is randomly sampled from shared replay buffer |
+| actor learning rate      | 1e-3      |   a learning rate of 1e-3 is used with an Adam optimizer for actors|
+| critic learning rate      | 2e-3      |   a learning rate of 2e-3 is used with an Adam optimizer for critics|
+| Actor-critic networks hidden layers| 2      |    The Q network has hidden 2 layers |
+| Number of hidden units in actor-critic networks      | 128,128 | every hidden layer las 128 units|
+| tau      | 1.0 | target networks update factor, 1 makes hard copies|
+| critic gradient clip      | 1.0 | to avoid exploding gradients in critic training|
 
 
 ## Training curves
@@ -45,14 +46,6 @@ This method uses a shared "experience replay" buffer storing experience tuples o
 ![Agent 1 actor loss](actor1_loss.png)
 ![Agent 2 actor loss](actor2_loss.png)
 
-## Ideas for improving the agents performance
-
-Benchmarking my agent against the expected episodes before completion, the agent is already pretty good(needs aroung 500 episodes, 1800 was the suggested value to expect), still i think there's some ideas than can make it better.
-
-* Apply prioritized experience replay : https://arxiv.org/pdf/1511.05952.pdf
-* Apply a dueling network architecture: https://arxiv.org/pdf/1511.06581.pdf
-* Do a detailed grid-search for hyperparameters.
-* Explore different Q network architecture.
 
 ## Future ideas for improvements
 
