@@ -2,6 +2,7 @@
 
 Repository dedicated to host reinforcement learning examples, exercices, experiments, tests and ideas.
 
+  - [Intro to OpenAI Gym and how to display animations](https://github.com/llealgt/Reinforcement-Learning/blob/master/OpenAIGymIntro.ipynb)
   - [Multi-armed bandit RL](https://github.com/llealgt/Reinforcement-Learning/blob/master/Multi-Armed%20Bandit%20.ipynb)
   - [Dynamic Programming](https://github.com/llealgt/Reinforcement-Learning/tree/master/dynamic_programming):
   	- [Udacity RL Dynamic Programming projects](https://github.com/llealgt/Reinforcement-Learning/blob/master/dynamic_programming/Udacity_Dynamic_Programming_Projects.ipynb)
