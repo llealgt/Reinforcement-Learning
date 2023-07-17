@@ -10,9 +10,11 @@ Repository dedicated to host reinforcement learning examples, exercices, experim
   - [Temporal Difference Learning](https://github.com/llealgt/Reinforcement-Learning/tree/master/temporal_difference_learning)
       - [Q-learning with bins(discretized continous space) using CartPole](https://github.com/llealgt/Reinforcement-Learning/blob/master/temporal_difference_learning/QLearningBinsCartPole.ipynb)
 
+      <center>
       | Untrained             |  Trained |
       :-------------------------:|:-------------------------:
       <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPoleUntrained.gif?raw=true" width="150" height="150" title="Untrained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPole.gif?raw=true" width="150" height="150" title="trained"/>
+      </center>
 
   - [n-step bootstraping](https://github.com/llealgt/Reinforcement-Learning/tree/master/n_step-bootstraping)
   - [TD Lambda](https://github.com/llealgt/Reinforcement-Learning/tree/master/td_lambda)
