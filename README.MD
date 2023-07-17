@@ -12,7 +12,7 @@ Repository dedicated to host reinforcement learning examples, exercices, experim
 
       | Untrained             |  Trained |
       :-------------------------:|:-------------------------:
-      <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPole.gif?raw=true" width="120" height="120" title="trained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPole.gif?raw=true" width="120" height="120" title="trained"/>
+      <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPoleUntrained.gif?raw=true" width="150" height="150" title="Untrained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPole.gif?raw=true" width="150" height="150" title="trained"/>
 
   - [n-step bootstraping](https://github.com/llealgt/Reinforcement-Learning/tree/master/n_step-bootstraping)
   - [TD Lambda](https://github.com/llealgt/Reinforcement-Learning/tree/master/td_lambda)
