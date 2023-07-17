@@ -11,9 +11,9 @@ Repository dedicated to host reinforcement learning examples, exercices, experim
       - [Q-learning with bins(discretized continous space) using CartPole](https://github.com/llealgt/Reinforcement-Learning/blob/master/temporal_difference_learning/QLearningBinsCartPole.ipynb)
 
 
-      | Untrained             |  Trained |
-      :-------------------------:|:-------------------------:
-      <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPoleUntrained.gif?raw=true" width="150" height="150" title="Untrained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPole.gif?raw=true" width="150" height="150" title="trained"/>
+        | Untrained             |  Trained |
+        :-------------------------:|:-------------------------:
+        <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPoleUntrained.gif?raw=true" width="150" height="150" title="Untrained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPole.gif?raw=true" width="150" height="150" title="trained"/>
 
 
   - [n-step bootstraping](https://github.com/llealgt/Reinforcement-Learning/tree/master/n_step-bootstraping)
