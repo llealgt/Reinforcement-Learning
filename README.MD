@@ -14,6 +14,7 @@ Repository dedicated to host reinforcement learning examples, exercices, experim
       :-------------------------:|:-------------------------:
       ![](https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPoleUntrained.gif?raw=true)  |  ![](https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPole.gif?raw=true)
       Untrained  |  Trained
+      <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPole.gif?raw=true" width="100" height="100" title="trained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPole.gif?raw=true" width="100" height="100" title="trained"/>
 
         <p>
         <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningBinsCartPole.gif?raw=true" width="100" height="100" title="trained"/>   
