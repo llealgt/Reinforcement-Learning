@@ -19,6 +19,10 @@ Repository dedicated to host reinforcement learning examples, exercices, experim
   - [n-step bootstraping](https://github.com/llealgt/Reinforcement-Learning/tree/master/n_step-bootstraping)
   - [TD Lambda](https://github.com/llealgt/Reinforcement-Learning/tree/master/td_lambda)
   - [Value Based Function Approximation](https://github.com/llealgt/Reinforcement-Learning/tree/master/function_approximation)
+      - [Q Network with Radial Basis Functions with Car Mountain](https://github.com/llealgt/Reinforcement-Learning/blob/master/function_approximation/RBFMountainCarDQN.ipynb)
+        | Untrained             |  Trained |  Cost to Go |
+        :-------------------------:|:-------------------------:|:-------------------------:
+        <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningApproxRBFMountainUntrained.gif" width="150" height="150" title="Untrained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningApproxRBFMountainTrained.gif" width="150" height="150" title="trained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearninApproxRBFMountainCTG.png" width="150" height="150" title="CTG"/>
   - [Policy Based Methods](https://github.com/llealgt/Reinforcement-Learning/tree/master/policy_based_methods)
   - [Model based and planning](https://github.com/llealgt/Reinforcement-Learning/tree/master/model_based_and_planning)
   - [Multi Agent RL](https://github.com/llealgt/Reinforcement-Learning/tree/master/multi_agent/)
