@@ -20,7 +20,7 @@ Repository dedicated to host reinforcement learning examples, exercices, experim
       - [n-step bootstrapping with RBF features and function approximation using CartPole](https://github.com/llealgt/Reinforcement-Learn)
         | Untrained             |  Trained |  Cost to Go |
           :-------------------------:|:-------------------------:|:-------------------------:
-          <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningNStepUntrained.gif" width="150" height="150" title="Untrained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningNStepTrained.gif" width="150" height="150" title="trained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/animations/nstepCTG.png" width="150" height="150" title="CTG"/>
+          <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningNStepUntrained.gif" width="150" height="150" title="Untrained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningNStepTrained.gif" width="150" height="150" title="trained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/nstepCTG.png" width="150" height="150" title="CTG"/>
   - [TD Lambda](https://github.com/llealgt/Reinforcement-Learning/tree/master/td_lambda)
   - [Value Based Function Approximation](https://github.com/llealgt/Reinforcement-Learning/tree/master/function_approximation)
       - [Q Network with Radial Basis Functions with Car Mountain](https://github.com/llealgt/Reinforcement-Learning/blob/master/function_approximation/RBFMountainCarDQN.ipynb)
