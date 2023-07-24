@@ -17,7 +17,7 @@ Repository dedicated to host reinforcement learning examples, exercices, experim
 
 
   - [n-step bootstraping](https://github.com/llealgt/Reinforcement-Learning/tree/master/n_step-bootstraping)
-      - [n-step bootstrapping with RBF features and function approximation using CartPole](https://github.com/llealgt/Reinforcement-Learn)
+      - [n-step bootstrapping with RBF features and function approximation using CartPole](https://github.com/llealgt/Reinforcement-Learning/blob/master/n_step-bootstraping/n_stepMountainCar.ipynb)
         | Untrained             |  Trained |  Cost to Go |
           :-------------------------:|:-------------------------:|:-------------------------:
           <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningNStepUntrained.gif" width="150" height="150" title="Untrained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/QLearningNStepTrained.gif" width="150" height="150" title="trained"/>  |  <img src="https://github.com/llealgt/Reinforcement-Learning/blob/master/animations/nstepCTG.png" width="150" height="150" title="CTG"/>
